@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <style>
+    .navbar {
+        border-radius: 0;
+    }
+    
+    <style type="text/css"> body,
+    html {
+        margin: 0;
+        font-family: sans-serif;
+    }
+    
+    ul {
+        padding: 0;
+        width: 100%;
+    }
+    
+    li {
+        display: inline;
+    }
+    
+    a {
+        outline: none;
+        text-decoration: none;
+        display: inline-block;
+        width: 10.5%;
+        margin-right: 0.625%;
+        text-align: center;
+        line-height: 3;
+        color: black;
+    }
+    
+    li:last-child a {
+        margin-right: 0;
+    }
+    
+    a:link,
+    a:visited,
+    a:focus {
+        background: #555555;
+        color: white;
+    }
+    
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+    
+    a:active {
+        background-color: black;
+        color: white;
+    }
+    
+    body {
+         background-image: url("img.png");
+        background-size: 90%;
+        color:pink;
+    }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 4px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0px;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        cursor: pointer;
+    }
+    
+    .button5 {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+    }
+    
+    .button5:hover {
+        background-color: #555555;
+        color: white;
+    }
+     table th,
+    td {
+        border: 3px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+   </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="angular-ui-router.min.js"></script>
+    <script src="mongo.js"></script>
+</head>
+
+
+<body ng-app="routerApp" ng-controller="mycntrl as mc">
+    <center><h1>Using mongodb</h1></center>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="Person">Personal</a></li>
+        <li><a ui-sref="Pop">Population</a></li>
+        <li><a ui-sref="CapitalOfState">State </a></li>
+        
+    </ul>
+    </nav>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+</body>
+
+</html>

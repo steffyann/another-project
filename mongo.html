@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Front end using mongodb</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="mycntrl as mc">
+<p>Post Person</p>
+<form ng-submit="mc.post(mc.user)">
+<input type="text" placeholder="Enter ur firstname" ng-model="mc.user.firstname"><br><br>
+<input type="text" placeholder="Enter ur lastname" ng-model="mc.user.lastname"><br><br>
+<button type="submit">Submit</button><br>
+</form>
+<p>Post states and its capital</p>
+<form ng-submit="mc.pos(mc.use)">
+<input type="text" placeholder="Enter the state" ng-model="mc.use.State"><br><br>
+<input type="text" placeholder="Enter the capital" ng-model="mc.use.Capital"><br><br>
+<button type="submit">Submit</button><br>
+</form>
+<p>Post Populations</p>
+<form ng-submit="mc.po(mc.us)">
+<input type="text" placeholder="Enter the country" ng-model="mc.us.Country"><br><br>
+<input type="text" placeholder="Enter the population in millions" ng-model="mc.us.Pop_in_millions"><br><br>
+<button type="submit">Submit</button><br>
+</form>
+</body>
+<script type="text/javascript">
+	var a=angular.module('myapp',[]);
+	a.controller('mycntrl', function($scope, $http) {
+		var vm=this;
+		vm.post = function(user) {
+        $http({
+            method: 'POST',
+            url: "http://0.0.0.0:3000/api/people",
+
+            data: {
+                "firstname":user.firstname,
+                "lastname": user.lastname
+               
+            }
+        }).then(
+            function successCallback(response) {
+                console.log("aa", response);
+            },
+            function errorCallback(response) {}
+        )
+    }
+vm.pos = function(use) {
+        $http({
+            method: 'POST',
+            url: "http://0.0.0.0:3000/api/CapitalOfStates",
+
+            data: {
+                "State":use.State,
+                "Capital": use.Capital
+               
+            }
+        }).then(
+            function successCallback(response) {
+                console.log("bb", response);
+            },
+            function errorCallback(response) {}
+        )
+    }
+
+    vm.po = function(us) {
+        $http({
+            method: 'POST',
+            url: "http://0.0.0.0:3000/api/Pops",
+
+            data: {
+                "Country":us.Country,
+                "Pop_in_millions": us.Pop_in_millions
+               
+            }
+        }).then(
+            function successCallback(response) {
+                console.log("cc", response);
+            },
+            function errorCallback(response) {}
+        )
+    }
+
+
+
+
+
+	})
+
+</script>
+</html>
