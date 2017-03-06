@@ -1,0 +1,22 @@
+<div class="container3">
+<u><p>State and its capital</p></u>
+<form ng-submit="mc.pos(mc.use)">
+<input type="text" placeholder="Enter the state" ng-model="mc.use.State"><br><br>
+<input type="text" placeholder="Enter the capital" ng-model="mc.use.Capital"><br><br>
+<button type="submit">Submit</button><br><br>
+</form>
+<!-- <input type="text" placeholder="Enter ur id here" ng-model="id"><br><br> -->
+<button type="submit" ng-click="mc.get()">Get information</button>
+<table>
+<tr>
+<th>id</th>
+<th>State</th>
+<th>Capital</th>
+</tr>
+<tr ng-repeat="d in mc.details">
+<td>{{d.id}}
+<td>{{d.State}}</td>
+<td>{{d.Capital}}</td>
+</tr>
+</table>
+</div>
